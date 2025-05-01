@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Meu Histórico - Dalaeno Odontologia{% endblock %}
+
+{% block content %}
+    <h1>Meu Histórico de Consultas</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if consultas %}
+        <p>Aqui está o seu histórico de consultas na Dalaeno Odontologia:</p>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Data e Hora</th>
+                    <th>Serviço</th>
+                    <th>Dentista</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for consulta in consultas %}
+                <tr>
+                    <td>{{ consulta.data_hora.strftime("%d/%m/%Y %H:%M") }}</td>
+                    <td>{{ consulta.servico }}</td>
+                    <td>{{ consulta.dentista if consulta.dentista else "-" }}</td>
+                    <td>{{ consulta.observacoes if consulta.observacoes else "-" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Ainda não tem consultas registadas no seu histórico.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for("marcacao") }}">Marcar nova consulta</a></p>
+
+    <style>
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .history-table th, .history-table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        .history-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .history-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-info {
+            color: #0c5460;
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+        }
+        /* Add other alert styles if needed */
+    </style>
+{% endblock %}
+

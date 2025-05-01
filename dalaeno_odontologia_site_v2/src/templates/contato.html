@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Contato - Dalaeno Odontologia{% endblock %}
+
+{% block content %}
+    <h1>Contato</h1>
+    <p>Entre em contato conosco ou visite nossa clínica.</p>
+    
+    <div class="contact-info">
+        <h2>Endereço</h2>
+        <p>Av. Wenceslau Escobar, 1823, SALA 314, Tristeza</p>
+        <p>Porto Alegre, Rio Grande do Sul</p>
+        <div class="map-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=Av.+Wenceslau+Escobar,+1823,+SALA+314,+Porto+Alegre" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+            <a href="waze://?q=Av.%20Wenceslau%20Escobar%2C%201823%2C%20SALA%20314%2C%20Porto%20Alegre" target="_blank" rel="noopener noreferrer">Abrir no Waze</a>
+        </div>
+        
+        <h2>Horário de Funcionamento</h2>
+        <p>Segunda a Sexta: 08:00 - 12:00 e 13:30 - 18:00</p>
+        <p>Sábado: 09:00 - 12:00</p>
+        
+        <h2>Email</h2>
+        <p><a href="mailto:dalaenoodontologia@gmail.com">dalaenoodontologia@gmail.com</a></p>
+        
+        {# TODO: Add contact form later if needed #}
+        {# <form action="{{ url_for(\'contato\') }}" method="post">
+            <h2>Envie-nos uma mensagem</h2>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Mensagem:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <button type="submit">Enviar</button>
+        </form> #}
+    </div>
+{% endblock %}
+

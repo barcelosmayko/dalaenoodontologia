@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Marcação de Consulta - Dalaeno Odontologia{% endblock %}
+
+{% block content %}
+    <h1>Marcação de Consulta</h1>
+    <p>Preencha o formulário abaixo para solicitar a sua consulta. Entraremos em contato para confirmar a data e hora.</p>
+
+    {# Render WTForm - requires passing form object from Flask route #}
+    <form method="POST" action="{{ url_for("marcacao") }}" novalidate>
+        {{ form.hidden_tag() }} {# Include CSRF token #}
+        
+        <div class="form-group">
+            {{ form.nome.label }}<br>
+            {{ form.nome(size=30) }}<br>
+            {% for error in form.nome.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.email.label }}<br>
+            {{ form.email(size=30) }}<br>
+            {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.telefone.label }}<br>
+            {{ form.telefone(size=30) }}<br>
+            {% for error in form.telefone.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.servico.label }}<br>
+            {{ form.servico() }}<br>
+            {% for error in form.servico.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.data_hora.label }}<br>
+            {{ form.data_hora() }}<br>
+            {% for error in form.data_hora.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.observacoes.label }}<br>
+            {{ form.observacoes(rows=4, cols=50) }}<br>
+            {% for error in form.observacoes.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="datetime-local"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            max-width: 400px; /* Limit width */
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input[type="submit"] {
+            padding: 0.7rem 1.5rem;
+            background-color: #C97375; /* Antique Pink */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #b36264; /* Darker pink */
+        }
+    </style>
+
+{% endblock %}
+

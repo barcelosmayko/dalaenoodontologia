@@ -1,0 +1,244 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Modern font stack */
+  color: #333; /* Dark grey for text */
+  background-color: #ffffff; /* White background */
+  line-height: 1.6;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #C97375; /* Antique Pink */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center nav items by default */
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff; /* White text on pink header */
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: block; /* Ensure padding applies correctly */
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight white highlight on hover */
+}
+
+main {
+  flex-grow: 1;
+  padding: 2rem;
+  max-width: 960px; /* Limit content width for readability */
+  margin: 2rem auto; /* Center main content and add top/bottom margin */
+  width: 100%;
+}
+
+h1, h2, h3 {
+  color: #C97375; /* Antique Pink for headings */
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+h1 {
+  font-size: 2.2rem; /* Slightly smaller default H1 */
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 0; /* No top margin for first H1 in main */
+}
+
+h2 {
+  font-size: 1.7rem;
+  border-bottom: 2px solid #f0f0f0; /* Light separator */
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+ color: #C97375; /* Antique Pink for links */
+ text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #f8f8f8; /* Light grey footer */
+  color: #555;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Contact Page Specifics */
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.map-links {
+    margin-top: 1rem; /* Add space above map links */
+}
+
+.map-links a {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem; /* Ensure spacing when stacked */
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #C97375;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.map-links a:hover {
+  background-color: #b36264; /* Darker pink on hover */
+  text-decoration: none;
+}
+
+/* About Page Placeholders */
+.about-content {
+    /* Styles for flex layout on larger screens will be in media queries */
+}
+
+.dentist-profile {
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.dentist-profile h3 {
+  color: #C97375;
+  margin-bottom: 0.5rem;
+  margin-top: 0; /* No top margin for heading inside profile */
+}
+
+/* --- Responsive Design --- */
+
+/* Mobile first approach: Default styles are for mobile */
+
+/* Tablet Styles (e.g., > 600px) */
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.9rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  nav ul {
+    gap: 2.5rem;
+  }
+  main {
+    padding: 2rem 3rem;
+  }
+}
+
+/* Desktop Styles (e.g., > 992px) */
+@media (min-width: 992px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+  h2 {
+      font-size: 2rem;
+  }
+  nav ul {
+    justify-content: flex-end; /* Align nav to the right on desktop */
+    gap: 2rem;
+  }
+  header {
+    padding: 1rem 4rem;
+  }
+  main {
+    padding: 3rem 4rem;
+  }
+  /* Arrange dentist profiles side-by-side on larger screens */
+  .about-content {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start; /* Align items top */
+  }
+  .dentist-profile {
+      flex: 1; /* Each profile takes equal space */
+      margin-bottom: 0; /* Remove bottom margin when side-by-side */
+  }
+  .map-links {
+      display: flex; /* Align map links horizontally */
+      gap: 1rem;
+      flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+  .map-links a {
+      margin-bottom: 0;
+  }
+}
+
+/* Adjustments for smaller mobile screens if necessary */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  h3 {
+      font-size: 1.2rem;
+  }
+  nav ul {
+    gap: 0.5rem; /* Reduce gap on very small screens */
+    justify-content: space-around; /* Space out items */
+    flex-wrap: wrap; /* Allow nav items to wrap */
+  }
+  nav ul li {
+      margin-bottom: 0.5rem; /* Add space if wrapped */
+  }
+  nav ul li a {
+    padding: 0.4rem 0.8rem; /* Reduce padding */
+    font-size: 0.9rem;
+  }
+  main {
+    padding: 1.5rem 1rem;
+  }
+  .map-links a {
+    display: block; /* Stack map links vertically */
+    margin-bottom: 0.8rem;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
